@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Privacy and Cybercrime Reflection</title>
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css">
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <style>
+        body {font-family: Arial, sans-serif;
+            background-color: #36454f;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 35px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+		
+		h1 {font-family: fantasy;
+			text-align: center;
+            color: #36454f;
+			letter-spacing: 2px;
+			border: solid 3px #fdfd96;
+			border-radius: 8px;
+			margin-right: 1.2in;
+			margin-left: 1.19in;
+			padding: 25px;
+			background-color: #fdfd96;
+        }
+
+        h2 {font-family: 'Courier New', Courier, monospace;
+			text-align: center;
+            color: #36454f;
+        }
+
+        p {text-indent: 0.5in;
+			color: black;
+            margin-bottom: 15px;
+			text-align: justify;
+        }
+
+        #word-count {
+            font-size: 1.2em;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px;
+            color: #fbec5d;
+        }
+    </style>
+</head>
+<body>
+	<h1>Data Privacy and Cybercrime Awareness</h1>
+	
+    <div id="container" class="container">
+    </div>
+	
+	<div id="word-count">
+    </div>
+    
+
+    <py-script>
+        from js import document
+        from html.parser import HTMLParser
+
+        content = """
+        <h2>REFLECTION: Key Take Aways of Trecia Mae R. Dacuba</h2>
+        <p>
+            As a BSIT 1st year student, a teenager, and a social media user as well, being part and attending the “Data Privacy and Cybercrime Awareness Campaign” helped me to be more knowledgeable on my rights and how technology can be used for our comfort and as well against us. I’ve realized that Technology has become a major part of our everyday lives, making many things much easier and more convenient. It assists us in many kind of ways, from making communication faster to simplifying tasks at home and work. However, while this brings a lot of benefits, it also has some negative sides, like cybercrimes and data privacy issues that is being prominent nowadays. As much as technology makes life better, it also opens the door to issues like online threats and security risks.
+        </p>
+        <p>
+            As I listen in this campaign, I’ve gained new insights on what can help us in facing this negative challenges that technology, internet, the cyberspace or the internet world has, the Philippine Constitution, the RA 10173, how various departments and laws ensures peace and order, the data privacy controllers, the different cybercrimes that can happen when our personal information got breached without permission, and a lot more. I was able to understand what laws are for and why should we everyone comply to it. It is for peace and order, because without it, nothing could restrain someone from killings, crimes, and such. I’ve also understood the significance of the Data Privacy Act of 2012 (RA 10173) that it is an important law, showcasing how personal and sensitive information is processed and protected. For example, personal information includes things like my name or age, while sensitive personal information such as IDs, Birth certificates, and other likes directly reveals my identity. The speaker were also able to explained the National Privacy Commission which is the one who ensures this law is implemented.
+        </p>
+        <p>
+            In addition to that, there are specific government departments responsible and manages specific personal informations as well. Like for example licenses held by LTO or Marriage Certificate by Philippine Statistic, and  there are strict guidelines that must be followed when handling data. Everyone can be held liable and responsible depending on how they handle and process the datas. An example of this is when data breaches occur, people must be informed, and controllers who were not able to assist properly and on time can also be held responsible. It is important to take note that before accessing, posting, or processing personal informations, proper consent and authorization should be implemented. This is to assure that such data were authorized to be used by the original owner. Because data privacy officers, controllers as well as other people can be held liable if they were not properly able to handle such personal informations.
+        </p>
+        <p>
+            Moreover, there are many kinds of penalties for various violations as well. Such as posting someone’s information without permission, can result in “Unauthorized Processing (sec 25)” of the provided penalties. That is why the law also emphasizes confidentiality, integrity, and availability of information, which is crucial in combating crimes like human trafficking or terrorism. Because such sensitive personal informations can also be used in such crimes said above, that are illegal and unauthorized.
+        </p>
+        <p>
+            In conclusion, all in all, this awareness campaign showed me the importance of data privacy in the digital age and the critical role laws play in protecting our personal rights and security. Without such laws, protections, privacy, and awareness, chaos would reign, and illegal activities would flourish. As well as our responsibilities as part of the cyberspace community, are also held liable and should properly handle and process different kind of informations.
+        </p>
+        """
+
+        # Insert the content into the container element
+        container = document.getElementById("container")
+        container.innerHTML = content
+
+        # Function to count words
+        def word_count(text):
+            words = text.split()
+            return len(words)
+
+        # Extract text content from HTML to remove tags
+        class MyHTMLParser(HTMLParser):
+            def __init__(self):
+                super().__init__()
+                self.text = ""
+            def handle_data(self, data):
+                self.text += data + " "
+
+        parser = MyHTMLParser()
+        parser.feed(content)
+
+        # Calculation for word count
+        count = word_count(parser.text)
+        word_count_element = document.getElementById("word-count")
+        word_count_element.innerHTML = f"Word Count: {count}"
+
+    </py-script>
+</body>
+</html>
